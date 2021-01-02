@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="">
+    <title>A Landing Page: Phone Pattern</title>
+    <link rel="stylesheet" href="icofont/icofont.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery/jquery.min.js"></script>
+    <script src="jquery/typed.js"></script>
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <div class="phone">
+        <div class="text">Text Is Here</div>
+        <div class="box-wrap">
+            <div class="box">
+                <div class="box-shape active">
+                    <p><i class="icofont-ice-cream"></i></p>
+                    <p>Ice Cream Joints</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-shape">
+                    <p><i class="icofont-brand-nescafe"></i></p>
+                    <p>Cafe</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-shape">
+                    <p><i class="icofont-chef"></i></p>
+                    <p>Chef</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-shape">
+                    <p><i class="icofont-google-map"></i></p>
+                    <p>Location</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-shape">
+                    <p><i class="icofont-food-basket"></i></p>
+                    <p>Food Card</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-shape">
+                    <p><i class="icofont-restaurant"></i></p>
+                    <p>Restaurant</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <h3>Signup for our Newletters</h3>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <input type="email" id="email" placeholder="Enter Email Address" required>
+                    <input type="password" id="password" placeholder="Enter Password" required>
+                </div>
+                <div class="modal-footer">
+                    <button id="registerBtn" onclick="Validate()">Register</button>
+                    <button id="CancelModal" onclick="modalCancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+
+        window.addEventListener("load", () => {
+            alert("Sorry this web page is not responsive for mobile devices. Thanks.");
+        });
+
+
+        const Question = confirm("Would you like to receive notifications from our website.");
+
+        if (Question == true) {
+            document.querySelector(".modal").style.display = "block";
+            alert("Please it is important to note that this page is not Databased, so your details are not stored. This is just a Demo.");
+        }else{
+            alert("Welcome our website")
+        }
+
+
+        function Validate() {
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+
+            if (email.value !== "" && password.value !== "") {
+                alert("Registered!");
+                document.querySelector(".modal").style.display = "none";
+            }else{
+                alert("Fill all input fields!");
+            }
+        }
+
+
+        function modalCancel() {
+            document.querySelector(".modal").style.display = "none";
+        }
+
+
+
+
+
+        const boxShape = document.querySelectorAll(".box-shape");
+
+        boxShape.forEach((boxes) => {
+            boxes.addEventListener("mouseover", () => {
+                removeClass();
+                boxes.classList.add("active");                
+            })
+        });
+
+
+        function removeClass() {
+            boxShape.forEach((boxes) => {
+                boxes.classList.remove("active");
+            })
+        }
+
+
+        var typed = new Typed('.text', {
+            strings: ["First sentence.", "This is more or less a menu app.", "It guides you to your needs.", "This is just a Demo, not a real service app.", "Thanks."],
+            typeSpeed: 70,
+            backspeed: 50,
+            loop: true
+        });
+    </script>
+</body>
+</html>
